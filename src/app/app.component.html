@@ -10,13 +10,13 @@
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Proyectos</a>
+          <a class="nav-link" href="/proyectos">Proyectos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Quienes Somos</a>
+          <a class="nav-link" href="/quienessomos">Quienes Somos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contacto</a>
+          <a class="nav-link" href="/contacto">Contacto</a>
         </li>
       </ul>
     </div>
@@ -24,87 +24,5 @@
 </nav>
 <br><br>
 
-<div class="container">
-  <div class="col">
-    <h1 style="text-align: center">{{ title }}</h1>
-    <br /><br />
-    <form class="form-group row">
-      <div class="form-group col-md-3">
-        <label for="nombre">Nombre:</label>
-        <input
-          type="text"
-          name="nombre"
-          id="nombre"
-          placeholder="Nombre"
-          class="form-control"
-          [(ngModel)]="cuadroNombre"
-        />
-      </div>
-      <div class="form-group col-md-3">
-        <label for="apellido">Apellido:</label>
-        <input
-          type="text"
-          name="apellido"
-          id="apellido"
-          placeholder="Apellido"
-          class="form-control"
-          [(ngModel)]="cuadroApellido"
-        />
-      </div>
-      <div class="form-group col-md-3">
-        <label for="cargo">Cargo:</label>
-        <input
-          type="text"
-          name="cargo"
-          id="cargo"
-          placeholder="Cargo"
-          class="form-control"
-          [(ngModel)]="cuadroCargo"
-        />
-      </div>
-      <div class="form-group col-md-3">
-        <label for="salario">Salario:</label>
-        <input
-          type="number"
-          name="salario"
-          id="salario"
-          placeholder="Salario"
-          class="form-control"
-          [(ngModel)]="cuadroSalario"
-        />
-      </div>
+<router-outlet></router-outlet>
 
-      <div class="col">
-        <br />
-        <button
-          type="submit"
-          class="btn btn-primary"
-          (click)="agregarEmpleado()"
-        >
-          Agregar Empleado
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
-<br /><br />
-
-<div class="container">
-  <div class="row" style="margin-top: 10px; text-align: left">
-    <div class="col-1">i</div>
-    <div class="col">Nombre</div>
-    <div class="col">Apellido</div>
-    <div class="col">Cargo</div>
-    <div class="col">Salario</div>
-    <div class="col">Accion</div>
-    <div class="col">Mas Informacion</div>
-    <div class="col">Caracteristicas</div>
-  </div>
-
-  <app-empleado-hijo-c
-    *ngFor="let empleado of empleados; let i = index"
-    [empleadoDeLista]="empleado"
-    [indice]="i"
-    [empleados]="empleados"
-  ></app-empleado-hijo-c>
-</div>

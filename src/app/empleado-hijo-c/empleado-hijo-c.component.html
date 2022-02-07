@@ -1,0 +1,37 @@
+<div class="row" style="margin-top: 10px">
+  <div class="col-1">{{ indice + 1 }}</div>
+  <div class="col">
+    {{ empleadoDeLista.nombre }}
+  </div>
+  <div class="col">
+    {{ empleadoDeLista.apellido }}
+  </div>
+  <div class="col">
+    {{ empleadoDeLista.cargo }}
+  </div>
+  <div class="col">
+    {{ empleadoDeLista.salario }}
+  </div>
+
+  <div class="col">
+    <button
+      type="submit"
+      class="btn btn-danger"
+      (click)="eliminarEmpleado(empleadoDeLista)"
+    >
+      Eliminar
+    </button>
+  </div>
+  <div class="col">
+    <app-caracteristicas-empleado
+      (caracteristicasEmpleados)="agregarCaracteristica($event)"
+    ></app-caracteristicas-empleado>
+    
+  </div>
+  <div class="col">
+    <ul style="list-style: none">
+      <li *ngFor="let item of caracteristicas">{{ item }}</li>
+    </ul>
+
+  </div>
+</div>

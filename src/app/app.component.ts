@@ -1,43 +1,38 @@
 import { Component } from '@angular/core';
 import { Empleado } from './empleado.model';
+import { EmpleadosService } from './empleados.service';
+import { ServicioEmpleadosService } from './servicio-empleados.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   title = 'Directivas y Listado de Empleados';
+  empleados:Empleado[]=[];
 
-  empleados:Empleado[]=[
+  constructor(
+    private miServicio: ServicioEmpleadosService,
+    private empleadosService: EmpleadosService
+  ) {
+    this.empleados=this.empleadosService.empleados;
 
-    new Empleado("Juan","Perez","Presidente",150000),
-    new Empleado("Ana","Castro","Tesorera",60000),
-    new Empleado("Laura","Gonzales","Secretaria",50000),
-    new Empleado("Juanita","Rocha","Asistente de limpieza",20000)
-
-
-  ];
+  }
 
   agregarEmpleado() {
-    let miEmpleado=new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario);
-    this.empleados.push(miEmpleado);
+    let miEmpleado = new Empleado(
+      this.cuadroNombre,
+      this.cuadroApellido,
+      this.cuadroCargo,
+      this.cuadroSalario
+    );
+    //this.miServicio.muestraMensaje('Nombre del empleado: ' + miEmpleado.nombre);
+    this.empleadosService.agregarEmpleadoServicio(miEmpleado);
   }
 
-  eliminarEmpleado(key:any) {
-    //delete empleado[posicion];
-    const index = this.empleados.indexOf(key, 0);
-      if (index > -1) {
-        this.empleados.splice(index, 1);
-        };
-  }
-
-  
-
-cuadroNombre:string="";
-cuadroApellido:string="";
-cuadroCargo:string="";
-cuadroSalario:number=0;
-
-
+  cuadroNombre: string = '';
+  cuadroApellido: string = '';
+  cuadroCargo: string = '';
+  cuadroSalario: number = 0;
 }

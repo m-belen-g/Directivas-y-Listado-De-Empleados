@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -12,13 +12,15 @@ import { ProyectosComponent } from './proyectos/proyectos.component';
 import { QuienesSomosComponent } from './quienes-somos/quienes-somos.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ActualizaComponent } from './actualiza/actualiza.component';
 
 const appRoutes:Routes=[
 
   {path:'',component:HomeComponent},
   {path:'proyectos',component:ProyectosComponent},
   {path:'quienessomos',component:QuienesSomosComponent},
-  {path:'contacto',component:ContactoComponent}
+  {path:'contacto',component:ContactoComponent},
+  {path:'actualiza/:id',component: ActualizaComponent}
 ]
 @NgModule({
   
@@ -30,6 +32,7 @@ const appRoutes:Routes=[
     ProyectosComponent,
     QuienesSomosComponent,
     ContactoComponent,
+    ActualizaComponent,
   ],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
   providers: [ServicioEmpleadosService, EmpleadosService],

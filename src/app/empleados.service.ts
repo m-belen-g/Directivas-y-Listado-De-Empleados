@@ -17,7 +17,9 @@ export class EmpleadosService {
   agregarEmpleadoServicio(empleado:Empleado) {
     this.servicioVentanaEmergente.muestraMensaje("Persona que se va a agregar" + "\n" + empleado.nombre + "\n" + empleado.salario)
     this.empleados.push(empleado);
-  }
+  };
+
+  //encontrarEmpleado();
 
   constructor(private servicioVentanaEmergente: ServicioEmpleadosService) { }
 }
